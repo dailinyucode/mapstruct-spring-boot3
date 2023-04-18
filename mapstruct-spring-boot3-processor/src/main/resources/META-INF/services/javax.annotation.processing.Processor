@@ -1,0 +1,2 @@
+com.mapstruct.processor.AutoMapProcessor
+com.mapstruct.processor.AutoMapSpringProcessor

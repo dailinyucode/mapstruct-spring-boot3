@@ -1,0 +1,6 @@
+rootProject.name = 'mapstruct-spring-boot3'
+include 'mapstruct-spring-boot3-core'
+include 'mapstruct-spring-boot3-starter'
+include 'mapstruct-spring-boot3-processor'
+include 'mapstruct-spring-boot3-example'
+

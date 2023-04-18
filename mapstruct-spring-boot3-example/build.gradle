@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+group 'com.mapstruct.example'
+version 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(":mapstruct-spring-boot3-starter")
+    testImplementation project(":mapstruct-spring-boot3-starter")
+
+    //只在编译时生效
+    compileOnly "org.mapstruct:mapstruct:${mapstructVersion}"
+    testImplementation "org.mapstruct:mapstruct:${mapstructVersion}"
+
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+    testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+
+    annotationProcessor project(":mapstruct-spring-boot3-processor")
+    testAnnotationProcessor project(":mapstruct-spring-boot3-processor")
+
+    //jdk11及其以上移除了该包,可以使用jar替代
+    implementation 'javax.annotation:javax.annotation-api:1.3.2'
+    testImplementation 'javax.annotation:javax.annotation-api:1.3.2'
+
+
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}

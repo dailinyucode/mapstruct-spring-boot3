@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'com.mapstruct.core'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //spring核心
+    compileOnly "org.springframework:spring-core:${springVersion}"
+    //spring上下文
+    compileOnly "org.springframework:spring-context:${springVersion}"
+
+    compileOnly "org.mapstruct:mapstruct:${mapstructVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'com.mapstruct.processor'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(":mapstruct-spring-boot3-core")
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+
+    implementation "com.squareup:javapoet:${javapoetVersion}"
+    implementation "org.apache.commons:commons-lang3:${commonslang3Version}"
+}
+
+test {
+    useJUnitPlatform()
+}

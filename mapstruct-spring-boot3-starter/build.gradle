@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'com.mapstruct.starter'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //自己的配置你自己创建的配置类生成元数据信息
+//    implementation "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
+    //自动装配包
+    implementation "org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}"
+
+    api project(":mapstruct-spring-boot3-core")
+}
+
+test {
+    useJUnitPlatform()
+}
