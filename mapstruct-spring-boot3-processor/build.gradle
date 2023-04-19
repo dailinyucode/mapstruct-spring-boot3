@@ -1,8 +1,8 @@
 plugins {
     id 'java'
+    id("maven-publish")
+    id("signing")
 }
-
-group 'com.mapstruct.processor'
 
 repositories {
     mavenCentral()
@@ -14,6 +14,71 @@ dependencies {
 
     implementation "com.squareup:javapoet:${javapoetVersion}"
     implementation "org.apache.commons:commons-lang3:${commonslang3Version}"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'mapstruct-spring-boot3-processor'
+            //若是war包，就写components.web,若是jar包，就写components.java
+            from components.java
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name = 'Mapstruct Spring Boot3 Starter'
+                description = 'MapStruct Spring Boot 3'
+                url = 'https://github.com/Learner-DaiLinYu/mapstruct-spring-boot3'
+                packaging = 'jar'
+
+                // 许可证名称和地址
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        name = 'DaiLinYu'
+                        email = '1181434433@qq.com'
+                    }
+                }
+
+                // 版本控制仓库地址
+                scm {
+                    connection = 'scm:git:https://github.com/Learner-DaiLinYu/mapstruct-spring-boot3.git'
+                    developerConnection = 'scm:git:https://github.com/Learner-DaiLinYu/mapstruct-spring-boot3.git'
+                    url = 'https://github.com/Learner-DaiLinYu/mapstruct-spring-boot3'
+                }
+            }
+        }
+    }
+
+    // 定义发布到哪里
+    repositories {
+        maven {
+            def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+            credentials {
+                username sonatypeUsername
+                password sonatypePassword
+            }
+        }
+    }
+}
+
+//认证
+signing {
+    sign publishing.publications.mavenJava
 }
 
 test {

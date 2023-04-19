@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'com.mapstruct.example'
+group 'io.github.dailinyu.example'
 version 'unspecified'
 
 repositories {
@@ -13,15 +13,15 @@ dependencies {
     implementation project(":mapstruct-spring-boot3-starter")
     testImplementation project(":mapstruct-spring-boot3-starter")
 
+    annotationProcessor project(":mapstruct-spring-boot3-processor")
+    testAnnotationProcessor project(":mapstruct-spring-boot3-processor")
+
     //只在编译时生效
     compileOnly "org.mapstruct:mapstruct:${mapstructVersion}"
     testImplementation "org.mapstruct:mapstruct:${mapstructVersion}"
 
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
     testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
-
-    annotationProcessor project(":mapstruct-spring-boot3-processor")
-    testAnnotationProcessor project(":mapstruct-spring-boot3-processor")
 
     //jdk11及其以上移除了该包,可以使用jar替代
     implementation 'javax.annotation:javax.annotation-api:1.3.2'

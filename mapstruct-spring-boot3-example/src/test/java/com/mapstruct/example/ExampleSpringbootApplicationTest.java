@@ -1,8 +1,9 @@
 package com.mapstruct.example;
 
-import com.mapstruct.core.AutoMapObjectMapper;
-import com.mapstruct.example.domin.dto.CarDto;
-import com.mapstruct.example.domin.entity.Car;
+import io.github.dailinyucode.core.AutoMapObjectMapper;
+import io.github.dailinyu.example.ExampleSpringBootApplication;
+import io.github.dailinyu.example.domin.dto.CarDto;
+import io.github.dailinyu.example.domin.entity.Car;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

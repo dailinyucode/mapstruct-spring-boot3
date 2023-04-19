@@ -1,2 +1,2 @@
-com.mapstruct.processor.AutoMapProcessor
-com.mapstruct.processor.AutoMapSpringProcessor
+io.github.dailinyucode.processor.AutoMapProcessor
+io.github.dailinyucode.processor.AutoMapSpringProcessor

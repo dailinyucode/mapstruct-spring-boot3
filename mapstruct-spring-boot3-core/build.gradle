@@ -2,8 +2,6 @@ plugins {
     id 'java'
 }
 
-group 'com.mapstruct.core'
-
 repositories {
     mavenCentral()
 }

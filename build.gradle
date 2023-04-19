@@ -24,8 +24,8 @@ subprojects {
     apply plugin: "java-library"
     apply plugin: "jacoco"
 
-    group 'com.mapstruct'
-    version '1.0.1'
+    group 'io.github.dailinyucode'
+    version '1.0.1-SNAPHOT'
 
     [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
 
