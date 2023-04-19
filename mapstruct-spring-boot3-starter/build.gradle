@@ -34,7 +34,7 @@ publishing {
             pom {
                 name = 'Mapstruct Spring Boot3 Starter'
                 description = 'MapStruct Spring Boot 3'
-                url = 'https://github.com/Learner-DaiLinYu/mapstruct-spring-boot3'
+                url = 'https://github.com/dailinyucode/mapstruct-spring-boot3'
                 packaging = 'jar'
 
                 // 许可证名称和地址
@@ -54,9 +54,9 @@ publishing {
 
                 // 版本控制仓库地址
                 scm {
-                    connection = 'scm:git:https://github.com/Learner-DaiLinYu/mapstruct-spring-boot3.git'
-                    developerConnection = 'scm:git:https://github.com/Learner-DaiLinYu/mapstruct-spring-boot3.git'
-                    url = 'https://github.com/Learner-DaiLinYu/mapstruct-spring-boot3'
+                    connection = 'scm:git:https://github.com/dailinyucode/mapstruct-spring-boot3.git'
+                    developerConnection = 'scm:git:https://github.com/dailinyucode/mapstruct-spring-boot3.git'
+                    url = 'https://github.com/dailinyucode/mapstruct-spring-boot3'
                 }
             }
         }
