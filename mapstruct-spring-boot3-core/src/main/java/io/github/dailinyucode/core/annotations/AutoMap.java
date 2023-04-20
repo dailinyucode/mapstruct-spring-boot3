@@ -11,7 +11,6 @@ public @interface AutoMap {
 
     /**
      * 返回值类型
-     * @return
      */
     Class<?> targetType();
 

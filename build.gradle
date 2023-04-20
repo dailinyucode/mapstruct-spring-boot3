@@ -19,15 +19,36 @@ test {
     useJUnitPlatform()
 }
 
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}
+
+allprojects {
+    apply plugin: "java-library"
+    apply plugin: "jacoco"
+    repositories {
+        mavenLocal()
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/spring/'
+        }
+        mavenCentral()
+    }
+}
+
 subprojects {
 
     apply plugin: "java-library"
     apply plugin: "jacoco"
 
     group 'io.github.dailinyucode'
-    version '1.0.1-SNAPHOT'
+    version '1.0.2'
 
-    [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
+    javadoc.options.encoding("UTF-8")
+    compileJava.options.encoding("UTF-8")
+    compileTestJava.options.encoding("UTF-8")
 
     dependencies {
         compileOnly "org.projectlombok:lombok:${lombokVersion}"
@@ -43,6 +64,12 @@ subprojects {
         toolchain {
             languageVersion.set(JavaLanguageVersion.of(17))
         }
+    }
+
+    javadoc {
+        // <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        // 防止本地打开中文乱码
+        options.addStringOption("charset", "UTF-8")
     }
 }
 

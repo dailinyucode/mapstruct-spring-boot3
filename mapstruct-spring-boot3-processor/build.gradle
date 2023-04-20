@@ -4,6 +4,15 @@ plugins {
     id("signing")
 }
 
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+jar{
+    archiveFileName = 'mapstruct-spring-boot3-process.jar'
+}
+
 repositories {
     mavenCentral()
 }

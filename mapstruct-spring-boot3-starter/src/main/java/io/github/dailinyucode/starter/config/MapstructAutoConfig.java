@@ -4,8 +4,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Author: DaiLiYu
- * @Date: 2023/4/18 13:36
+ * {@code @Author:} dailinyu
+ * {@code @Date:} 2022.10.18
  */
 @Configuration
 @ComponentScan("io.github.dailinyucode.core")
